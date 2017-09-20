@@ -1,4 +1,6 @@
-package day1.lab1;// Copyright 2017 Amazon Web Services, Inc. or its affiliates. All rights reserved.
+// Copyright 2017 Amazon Web Services, Inc. or its affiliates. All rights reserved.
+
+package day1.lab1;
 
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
