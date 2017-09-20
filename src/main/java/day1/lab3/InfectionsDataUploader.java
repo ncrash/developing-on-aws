@@ -108,7 +108,6 @@ public class InfectionsDataUploader {
    */
   public static PutItemOutcome addItemToTable(
       Table table, String patientId, String city, String date) {
-    // STUDENT TODO 2: Replace the solution with your own code
     return Solution.addItemToTable(table, patientId, city, date);
   }
 }

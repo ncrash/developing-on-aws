@@ -77,7 +77,6 @@ public class InfectionStatistics {
    */
   public static ItemCollection<QueryOutcome> queryCityRelatedItems(
       DynamoDB dynamoDB, String infectionsTableName, String cityDateGsiName, String inputCity) {
-    // STUDENT TODO 3: Replace the solution with your own code
     return Solution.queryCityRelatedItems(
         dynamoDB, infectionsTableName, cityDateGsiName, inputCity);
   }

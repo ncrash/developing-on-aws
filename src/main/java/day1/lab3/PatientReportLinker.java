@@ -60,7 +60,6 @@ public class PatientReportLinker {
    */
   private static UpdateItemOutcome updateItemWithLink(
       DynamoDB dynamoDB, String tableName, String patientId, String reportUrl) {
-    // STUDENT TODO 4: Replace the solution with your own code
     return Solution.updateItemWithLink(dynamoDB, tableName, patientId, reportUrl);
   }
 }

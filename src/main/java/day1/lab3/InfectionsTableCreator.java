@@ -126,7 +126,6 @@ public class InfectionsTableCreator {
       KeySchemaElement tableKeySchemaElem,
       ProvisionedThroughput tableProvisionedThroughput,
       GlobalSecondaryIndex gsi) {
-    // STUDENT TODO 1: Replace the solution with your own code
     Solution.createInfectionsTableWithIndex(
         dynamoDB,
         INFECTIONS_TABLE_NAME,
