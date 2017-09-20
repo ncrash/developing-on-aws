@@ -28,7 +28,7 @@ public class Utils {
 
     // For local testing only
     if (region == null) {
-      region = Region.getRegion(Regions.US_WEST_1);
+      region = Region.getRegion(Regions.AP_NORTHEAST_1);
     }
 
     System.out.printf("getRegion returned: ", region.getName());
