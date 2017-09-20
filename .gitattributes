@@ -7,11 +7,11 @@
 *.css    text
 *.js     text
 *.sql    text
-*.bat    text
 
 *.csproj text merge=union
 *.sln    text merge=union eol=crlf
- 
+*.bat    text merge=union eol=crlf
+
 *.docx   diff=astextplain
 *.DOCX   diff=astextplain
  
