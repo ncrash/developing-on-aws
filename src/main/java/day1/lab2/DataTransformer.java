@@ -172,7 +172,6 @@ public class DataTransformer {
    * @return                The S3 Client
    */
   private static AmazonS3Client createS3Client(Region bucketRegion) {
-    // STUDENT TODO 3: Replace the solution with your own code
     return Solution.createS3Client(bucketRegion);
   }
 
@@ -185,7 +184,6 @@ public class DataTransformer {
    * @return              The file contents
    */
   private static S3Object getObject(AmazonS3Client s3Client, String bucketName, String fileKey) {
-    // STUDENT TODO 4: Replace the solution with your own code
     return Solution.getObject(s3ClientForStudentBuckets, bucketName, fileKey);
   }
 
@@ -197,7 +195,6 @@ public class DataTransformer {
    * @param transformedFile   Contents of the file
    */
   private static void putObjectBasic(String bucketName, String fileKey, File transformedFile) {
-    // STUDENT TODO 5: Replace the solution with your own code
     Solution.putObjectBasic(
         s3ClientForStudentBuckets, OUTPUT_BUCKET_NAME, fileKey, transformedFile);
   }
@@ -210,7 +207,6 @@ public class DataTransformer {
    * @return              Presigned URL
    */
   private static URL generatePresignedUrl(String bucketName, String objectKey) {
-    // STUDENT TODO 6: Replace the solution with your own code
     return Solution.generatePresignedUrl(s3ClientForStudentBuckets, bucketName, objectKey);
   }
 

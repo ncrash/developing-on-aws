@@ -10,8 +10,9 @@ import com.amazonaws.services.s3.model.S3ObjectSummary;
 import org.junit.Test;
 
 /**
- * aws-dev Created by daekwon.kang@gmail.com on 20/09/2017 Blog : http://ncrash.github.io/ Github :
- * http://github.com/ncrash
+ * aws-dev Created by daekwon.kang@gmail.com on 20/09/2017
+ * Blog : http://ncrash.github.io/
+ * Github : http://github.com/ncrash
  */
 public class DataTransformerTest {
   @Test
