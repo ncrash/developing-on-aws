@@ -1,0 +1,7 @@
+Id: 3
+Infection control measures implemented:
+* Hand Washing: Yes
+* Infection control standard, contact, droplet and airborne precautions - Yes
+* Procedures for decontamination of persons and disinfection of equipment and the environment - No
+* Quarantine of contacts (if necessary): Yes
+* Prophylaxis of exposed individuals: Yes
