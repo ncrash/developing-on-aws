@@ -73,9 +73,8 @@ public class DataTransformer {
             // Convert the file from CSV to JSON format
             transformedFile = transformText(s3Object);
 
-            // STUDENT TODO 7: Switch to enhanced file upload
-            putObjectBasic(OUTPUT_BUCKET_NAME, fileKey, transformedFile);
-            // response = putObjectEnhanced(OUTPUT_BUCKET_NAME, fileKey, transformedFile);
+//            putObjectBasic(OUTPUT_BUCKET_NAME, fileKey, transformedFile);
+             response = putObjectEnhanced(OUTPUT_BUCKET_NAME, fileKey, transformedFile);
 
             if (response != null) {
               System.out.println("Encryption algorithm: " + response.getSSEAlgorithm());
@@ -220,7 +219,6 @@ public class DataTransformer {
    */
   private static PutObjectResult putObjectEnhanced(
       String bucketName, String fileKey, File transformedFile) {
-    // STUDENT TODO 8: Replace the solution with your own code
     return Solution.putObjectEnhanced(
         s3ClientForStudentBuckets, bucketName, fileKey, transformedFile);
   }
