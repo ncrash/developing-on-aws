@@ -11,11 +11,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 // The SNSPublisher class publishes messages to SNS topics
 public class SNSPublisher {
 
-  // STUDENT TODO 1: Set ARN for SNS topic for email messages
-  private static final String TOPIC_ARN_EMAIL = "<Email-SNS-Topic-ARN>";
+  private static final String TOPIC_ARN_EMAIL = "arn:aws:sns:ap-northeast-1:909859851799:EmailSNSTopic";
 
-  // STUDENT TODO 2: Set ARN for SNS topic for order messages
-  private static final String TOPIC_ARN_ORDER = "<Order-SNS-Topic-ARN>";
+  private static final String TOPIC_ARN_ORDER = "arn:aws:sns:ap-northeast-1:909859851799:OrderSNSTopic";
 
   private static final Region REGION = Utils.getRegion();
   private static final String EMAIL_SUBJECT = "Status of pharmaceuticals order.";
@@ -71,13 +69,11 @@ public class SNSPublisher {
    * @param credentials   AWS Credentials
    */
   private static void createSNSClient(AWSCredentials credentials) {
-    // STUDENT TODO 3: Replace the solution with your own code
     snsClient = Solution.createSNSClient(snsClient, credentials, REGION);
   }
 
   /** Publish a message to the SNS topic for email messages */
   private static void publishEmailMessage() {
-    // STUDENT TODO 4: Replace the solution with your own code
     Solution.publishEmailMessage(snsClient, TOPIC_ARN_EMAIL, EMAIL_MESSAGE, EMAIL_SUBJECT);
   }
 
@@ -89,7 +85,6 @@ public class SNSPublisher {
    * @return          The order in JSON format
    */
   private static String convertOrderToJSON(ObjectMapper mapper, Order order) {
-    // STUDENT TODO 5: Replace the solution with your own code
     return Solution.convertOrderToJSON(mapper, order);
   }
 
@@ -99,7 +94,6 @@ public class SNSPublisher {
    * @param jsonOrder   The order in JSON format
    */
   private static void publishOrder(String jsonOrder) {
-    // STUDENT TODO 6: Replace the solution with your own code
     Solution.publishOrder(snsClient, TOPIC_ARN_ORDER, jsonOrder);
   }
 }
