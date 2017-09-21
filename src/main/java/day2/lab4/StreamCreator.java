@@ -86,7 +86,6 @@ public class StreamCreator {
    * @return              Kinesis client object
    */
   private static AmazonKinesisClient createKinesisClient(AWSCredentials credentials) {
-    // STUDENT TODO 1: Replace the solution with your own code
     return Solution.createKinesisClient(credentials, REGION);
   }
 
@@ -97,7 +96,6 @@ public class StreamCreator {
    * @param shardCount    Number of shards in Kinesis stream
    */
   private static void createStream(String streamName, int shardCount) {
-    // STUDENT TODO 2: Replace the solution with your own code
     Solution.createStream(kinesis, streamName, shardCount);
   }
 
@@ -108,7 +106,6 @@ public class StreamCreator {
    * @return              Stream status
    */
   private static String getStreamStatus(String streamName) {
-    // STUDENT TODO 3: Replace the solution with your own code
     return Solution.getStreamStatus(kinesis, streamName);
   }
 }

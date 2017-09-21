@@ -175,7 +175,6 @@ public class SensorRecordProcessor implements IRecordProcessor {
    * @return          Record to be processed
    */
   private ByteBuffer getRecordData(Record record) {
-    // STUDENT TODO 9: Replace the solution with your own code
     return Solution.getRecordData(record);
   }
 }

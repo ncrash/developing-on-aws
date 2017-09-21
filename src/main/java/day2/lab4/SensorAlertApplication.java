@@ -128,7 +128,6 @@ public final class SensorAlertApplication {
    * @return            Kinesis config
    */
   private static KinesisClientLibConfiguration createKinesisConfig(String workerId) {
-    // STUDENT TODO 7: Replace the solution with your own code
     return Solution.createKinesisConfig(
         APPLICATION_NAME,
         STREAM_NAME,
@@ -145,7 +144,6 @@ public final class SensorAlertApplication {
    * @return          Worker instance
    */
   private static Worker createWorker(KinesisClientLibConfiguration config) {
-    // STUDENT TODO 8: Replace the solution with your own code
     return Solution.createWorker(config);
   }
 }

@@ -116,7 +116,6 @@ public class SensorReadingsProducer {
    * @return        Kinesis configuration
    */
   private static KinesisProducerConfiguration createKinesisProducerConfig() {
-    // STUDENT TODO 4: Replace the solution with your own code
     return Solution.createKinesisProducerConfig(REGION);
   }
 
@@ -127,7 +126,6 @@ public class SensorReadingsProducer {
    * @return            Kinesis producer
    */
   private static KinesisProducer createKinesisProducer(KinesisProducerConfiguration config) {
-    // STUDENT TODO 5: Replace the solution with your own code
     return Solution.createKinesisProducer(config);
   }
 
@@ -140,7 +138,6 @@ public class SensorReadingsProducer {
    */
   private static ListenableFuture<UserRecordResult> addUserRecordToStream(
       KinesisProducer kinesisProducer, SensorData sensorData) {
-    // STUDENT TODO 6: Replace the solution with your own code
     return Solution.addUserRecordToStream(STREAM_NAME, kinesisProducer, sensorData);
   }
 }
