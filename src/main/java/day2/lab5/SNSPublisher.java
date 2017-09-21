@@ -13,6 +13,8 @@ public class SNSPublisher {
 
   private static final String TOPIC_ARN_EMAIL = "arn:aws:sns:ap-northeast-1:909859851799:EmailSNSTopic";
 
+  private static final String TOPIC_ARN_SMS = "arn:aws:sns:ap-northeast-1:909859851799:SmsSNSTopic";
+
   private static final String TOPIC_ARN_ORDER = "arn:aws:sns:ap-northeast-1:909859851799:OrderSNSTopic";
 
   private static final Region REGION = Utils.getRegion();
@@ -74,7 +76,7 @@ public class SNSPublisher {
 
   /** Publish a message to the SNS topic for email messages */
   private static void publishEmailMessage() {
-    Solution.publishEmailMessage(snsClient, TOPIC_ARN_EMAIL, EMAIL_MESSAGE, EMAIL_SUBJECT);
+    Solution.publishEmailMessage(snsClient, TOPIC_ARN_SMS, EMAIL_MESSAGE, EMAIL_SUBJECT);
   }
 
   /**
