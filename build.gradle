@@ -19,6 +19,15 @@ dependencies {
     // https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb
     compile group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: '1.11.197'
 
+    // https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-kinesis
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-kinesis', version: '1.11.198'
+
+    // https://mvnrepository.com/artifact/com.amazonaws/amazon-kinesis-client
+    compile group: 'com.amazonaws', name: 'amazon-kinesis-client', version: '1.8.1'
+
+    // https://mvnrepository.com/artifact/com.amazonaws/amazon-kinesis-producer
+    compile group: 'com.amazonaws', name: 'amazon-kinesis-producer', version: '0.12.5'
+
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
 
