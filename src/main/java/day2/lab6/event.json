@@ -3,7 +3,7 @@
     {
       "s3": {
         "bucket": {
-          "name": ""
+          "name": "dev-on-aws-lambda-input.daekwon.kang"
         },
         "object": {
           "key": "DrugAdverseEvents_September.txt"

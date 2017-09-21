@@ -43,7 +43,6 @@ exports.handler = function(event, context) {
 
   async.waterfall([
     function download(next) {
-      // STUDENT TODO 2: Replace the solution with your own code
       // Replace the call to solution.parmsForGet and provide your own 'params' object.
       // 'params' must include the Bucket (srcBucket) and Key (srcKey) parameters.
 
@@ -58,7 +57,6 @@ exports.handler = function(event, context) {
       next(null, transformedObject);
     },
     function upload(data, next) {
-      // STUDENT TODO 3: Replace the solution with your own code
       // Replace the call to solution.parmsForPut and provide your own 'params' object.
       // 'params' must include the Bucket (dstBucket), Key (dstKey) and Body (data) parameters.
 
