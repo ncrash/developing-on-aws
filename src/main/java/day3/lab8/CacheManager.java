@@ -6,8 +6,7 @@ import net.spy.memcached.MemcachedClient;
 // The CacheManager class implements the lazy caching approach to populate the cache and retrieve items from cache
 public class CacheManager {
 
-  // STUDENT TODO 1: Set the endpoint for the ElastiCache node cluster
-  public static final String CLUSTER_CONFIG_ENDPOINT = "<ElastiCache-Configuration-Endpoint>";
+  public static final String CLUSTER_CONFIG_ENDPOINT = "qls-el-1ojq14qoqfxau.ywu7e8.cfg.apne1.cache.amazonaws.com";
 
   public static final int CLUSTER_CONFIG_ENDPOINT_PORT = 11211;
 
@@ -51,7 +50,6 @@ public class CacheManager {
    * @return    MemcachedClient instance
    */
   private static MemcachedClient newMemcachedClient() {
-    // STUDENT TODO 2: Replace the solution with your own code
     return Solution.newMemcachedClient(CLUSTER_CONFIG_ENDPOINT, CLUSTER_CONFIG_ENDPOINT_PORT);
   }
 
@@ -62,7 +60,6 @@ public class CacheManager {
    * @return      Value of the key
    */
   private static Object getCacheItem(String key) {
-    // STUDENT TODO 3: Replace the solution with your own code
     return Solution.getCacheItem(memcachedClient, key);
   }
 
@@ -73,7 +70,6 @@ public class CacheManager {
    * @param value   The value of the key to set
    */
   private static void setCacheItem(String key, Object value) {
-    // STUDENT TODO 4: Replace the solution with your own code
     Solution.setCacheItem(memcachedClient, key, value);
   }
 }
