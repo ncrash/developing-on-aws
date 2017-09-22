@@ -79,7 +79,7 @@ SolutionCode.prototype.filterRows = function() {
   var deleteParams = {
     TableName: 'CognitoLab',
     Key: {
-      CognitoIdentity: { "S": "<another-identity>" }
+      CognitoIdentity: { "S": AWS.config.credentials.identityId }
     }
   };
   dynamoDB.deleteItem(deleteParams, function(err, data) {

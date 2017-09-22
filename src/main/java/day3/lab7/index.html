@@ -31,12 +31,10 @@
       var solution = new SolutionCode();
       var results = document.getElementById("results");
 
-      // STUDENT TODO 1: Update region code (example: 'us-west-2')
-      AWS.config.region = '<region-code-goes-here>';
+      AWS.config.region = 'ap-northeast-1';
 
       AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-        // STUDENT TODO 2: Update identity pool id (is similar to 'us-west-2:2bd...')
-        IdentityPoolId: '<identity-pool-id-goes-here>'
+        IdentityPoolId: 'ap-northeast-1:41f0f1c5-49da-4393-a71d-5ecc9ddbcf5a'
       });
 
       // Create DynamoDB object
@@ -57,7 +55,6 @@
         // Grab the contents of the textbox
         var inserttext = document.getElementById('inserttext').value;
 
-        // STUDENT TODO 3: Replace the solution with your own code
         // Populate the putParams object with the following:
         //    TableName - The name of the table to contain the item
         //    Item - A map of attribute name/value pairs, one for each attribute
@@ -75,7 +72,6 @@
 
       // Get button click event
       addEvent('click', document.getElementById('get'), function() {
-        // STUDENT TODO 4: Replace the solution with your own code
         // Populate the getParams object
         //    Key - A map representing primary key name/value
         //    TableName - The name of the table to contain the item
@@ -83,7 +79,6 @@
         var getParams = solution.paramsForRetrieval();
 
         dynamoDB.getItem(getParams, function(err, data) {
-          // STUDENT TODO 5: Replace the solution with your own code
           // Check for any errors, and display the results
           solution.processResults(err, data);
         });
@@ -91,7 +86,6 @@
 
       // Challenge button click event
       addEvent('click', document.getElementById('challenge'), function() {
-        // STUDENT TODO (CHALLENGE): Replace the solution with your own code
         // Delete DynamoDB rows that don't belong to your Cognito Identity.
         // Attempt to perform a dynamoDB.scan or dynamoDB.getItem to retrieve
         // items created in another browser/identity.
