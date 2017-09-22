@@ -31,6 +31,12 @@ dependencies {
     // https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-sns
     compile group: 'com.amazonaws', name: 'aws-java-sdk-sns', version: '1.11.199'
 
+    // https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-elasticache
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-elasticache', version: '1.11.200'
+
+    // https://mvnrepository.com/artifact/net.spy/spymemcached
+    compile group: 'net.spy', name: 'spymemcached', version: '2.12.3'
+
     // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
 
