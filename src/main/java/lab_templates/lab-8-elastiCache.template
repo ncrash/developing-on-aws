@@ -1,0 +1,126 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Developing on AWS - v2.1 - Lab 8: ElastiCache",
+  "Parameters": {
+    "AWSAccessKey": {
+      "Description": "Access key for our lab user.",
+      "Type": "String"
+    },
+    "AWSSecretAccessKey": {
+      "Description": "Secret access key for our lab user.",
+      "Type": "String"
+    },
+    "KeyName": {
+      "Type": "String",
+      "Description": "Keyname for the keypair that Qwiklab will use to launch EC2 instances",
+      "Default": "default-lab-key"
+    },
+    "LabUrlPrefix": {
+      "Type": "String",
+      "Default": "https://us-west-2-aws-staging.s3.amazonaws.com/awsu-ilt/AWS-100-DEV/v2.1"
+    },
+    "LabName": {
+      "Type": "String",
+      "Default": "lab-8-elastiCache"
+    },
+    "AWSAmiId": {
+      "Description": "The name of the Windows AMI to find based on search",
+      "Type": "String",
+      "Default": "x86_64,Windows_Server-2012-R2_RTM-English-64Bit-Base"
+    },
+    "CacheNodeType": {
+      "Description" : "The compute and memory capacity of the nodes in the Cache Cluster",
+      "Type" : "String",
+      "Default" : "cache.m1.small",
+      "AllowedValues" : [ "cache.m1.small", "cache.m1.large", "cache.m1.xlarge", "cache.m2.xlarge", "cache.m2.2xlarge", "cache.m2.4xlarge", "cache.c1.xlarge" ],
+      "ConstraintDescription" : "must select a valid Cache Node type."
+    },
+    "NumberOfCacheNodes": {
+      "Default": "1",
+      "Description" : "The number of cache nodes the cache cluster should have",
+      "Type": "Number",
+      "MinValue": "1",
+      "MaxValue": "2",
+      "ConstraintDescription" : "Must be 1 or 2."
+    }
+  },
+  "Resources": {
+    "BaseDevelopmentStack": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://us-west-2-aws-staging.s3.amazonaws.com/awsu-ilt/AWS-100-DEV/v2.1/lab-common/base-developing-template.template",
+        "Parameters": {
+          "AWSAccessKey": {
+            "Ref": "AWSAccessKey"
+          },
+          "AWSSecretAccessKey": {
+            "Ref": "AWSSecretAccessKey"
+          },
+          "KeyName": {
+            "Ref": "KeyName"
+          },
+          "LabUrlPrefix": {
+            "Ref": "LabUrlPrefix"
+          },
+          "ParentLabName": {
+            "Ref": "LabName"
+          }
+        },
+        "TimeoutInMinutes": "60"
+      }
+    },
+    "ElasticacheSubnetGroup": {
+      "Type": "AWS::ElastiCache::SubnetGroup",
+      "Properties": {
+        "Description": "Elasticache Subnet Group",
+        "SubnetIds": [
+            {
+                "Fn::GetAtt": [
+                    "BaseDevelopmentStack",
+                    "Outputs.LabVPCPublicSubnet1"
+                ]
+            }
+         ]
+      }
+    },
+    "ElasticacheSecurityGroupWindows": {
+     "Type": "AWS::EC2::SecurityGroup",
+     "Properties": {
+       "GroupDescription": "Elasticache Security Group",
+       "VpcId" : {"Fn::GetAtt": [ "BaseDevelopmentStack", "Outputs.LabVPCId" ]},
+       "SecurityGroupIngress": [ {
+         "IpProtocol": "tcp",
+         "FromPort": "11211",
+         "ToPort": "11211",
+         "SourceSecurityGroupId": {"Fn::GetAtt": [ "BaseDevelopmentStack", "Outputs.DevInstanceWindowsSecurityGroup" ]}
+       } ]
+     }
+    },
+    "ElasticacheSecurityGroupLinux": {
+     "Type": "AWS::EC2::SecurityGroup",
+     "Properties": {
+       "GroupDescription": "Elasticache Security Group",
+       "VpcId" : {"Fn::GetAtt": [ "BaseDevelopmentStack", "Outputs.LabVPCId" ]},
+       "SecurityGroupIngress": [ {
+         "IpProtocol": "tcp",
+         "FromPort": "11211",
+         "ToPort": "11211",
+         "SourceSecurityGroupId": {"Fn::GetAtt": [ "BaseDevelopmentStack", "Outputs.DevInstanceLinuxSecurityGroup" ]}
+       } ]
+     }
+    },
+    "ElasticacheCluster": {
+     "Type": "AWS::ElastiCache::CacheCluster",
+     "Properties": {
+       "AutoMinorVersionUpgrade": "true",
+       "Engine": "memcached",
+       "CacheNodeType": "cache.t2.micro",
+       "NumCacheNodes": "1",
+       "CacheSubnetGroupName": {
+         "Ref": "ElasticacheSubnetGroup"
+       },
+       "VpcSecurityGroupIds": [{"Fn::GetAtt": [ "ElasticacheSecurityGroupWindows", "GroupId"]}, {"Fn::GetAtt": [ "ElasticacheSecurityGroupLinux", "GroupId"]}]
+       }
+     }
+  }
+}
